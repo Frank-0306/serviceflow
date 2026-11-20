@@ -53,7 +53,9 @@ export function QuoteControls({ value, onChange }: Props) {
       />
 
       <fieldset className="space-y-4">
-        <legend className="mb-3 text-sm font-medium text-navy">{rate.kind === "residential" ? "Your home" : "Your space"}</legend>
+        <legend className="mb-3 text-sm font-medium text-navy">
+          <span key={rate.kind}>{rate.kind === "residential" ? "Your home" : "Your space"}</span>
+        </legend>
         {rate.kind === "residential" ? (
           <>
             <Stepper
@@ -90,7 +92,9 @@ export function QuoteControls({ value, onChange }: Props) {
               Approximate size
             </label>
             <span className="font-serif text-2xl tabular-nums text-navy">
-              {value.sqft.toLocaleString("en-US")}
+              <span key={value.sqft} translate="no">
+                {value.sqft.toLocaleString("en-US")}
+              </span>
               <span className="ml-1 font-sans text-sm text-muted">sq ft</span>
             </span>
           </div>

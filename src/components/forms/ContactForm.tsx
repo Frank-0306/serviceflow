@@ -100,7 +100,7 @@ export function ContactForm() {
       )}
       <div className="sm:col-span-2">
         <Button type="submit" loading={status === "sending"}>
-          {status === "sending" ? "Sending message…" : "Send message"}
+          <span key={status}>{status === "sending" ? "Sending message…" : "Send message"}</span>
         </Button>
       </div>
     </form>

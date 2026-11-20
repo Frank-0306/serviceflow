@@ -91,7 +91,7 @@ export function SiteHeader() {
           aria-controls="mobile-menu"
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? "Close" : "Menu"}
+          <span key={String(open)}>{open ? "Close" : "Menu"}</span>
           <span aria-hidden="true" className="relative block h-2.5 w-5">
             <span
               className={`absolute left-0 h-px w-5 bg-current transition-transform duration-300 ${open ? "top-1/2 rotate-45" : "top-0"}`}

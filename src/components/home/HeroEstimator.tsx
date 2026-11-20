@@ -88,10 +88,13 @@ export function HeroEstimator() {
 
         <div className="mt-6 flex items-end justify-between gap-4">
           <p className="text-sm leading-snug text-ivory/65">
-            {rate.allowsRecurring ? "Per visit, every two weeks" : "One-time visit"}
-            <span className="block text-xs text-ivory/45">1,200 sq ft, {formatHours(quote.laborHours)}</span>
+            {/* Keyed so the text stays correct when a browser translator is active. */}
+            <span key={String(rate.allowsRecurring)}>{rate.allowsRecurring ? "Per visit, every two weeks" : "One-time visit"}</span>
+            <span key={formatHours(quote.laborHours)} className="block text-xs text-ivory/45">
+              1,200 sq ft, {formatHours(quote.laborHours)}
+            </span>
           </p>
-          <p key={quote.total} className="animate-settle font-serif text-5xl font-light leading-none tabular-nums" aria-live="polite">
+          <p key={quote.total} translate="no" className="animate-settle font-serif text-5xl font-light leading-none tabular-nums" aria-live="polite">
             {formatCurrency(quote.total)}
           </p>
         </div>

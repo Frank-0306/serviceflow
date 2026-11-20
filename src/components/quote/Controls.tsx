@@ -30,8 +30,15 @@ export function Stepper({ label, value, min, max, onChange, unit, tone = "light"
           <span aria-hidden="true">−</span>
         </button>
         <output aria-live="polite" className={`w-10 text-center font-serif text-2xl tabular-nums ${dark ? "text-ivory" : "text-navy"}`}>
-          {value}
-          <span className="sr-only"> {value === 1 ? unit.one : unit.many}</span>
+          {/* Browser translators (e.g. Chrome's) replace text nodes, which stops React from
+              updating them. Keyed elements are recreated on change, so the value always updates. */}
+          <span key={value} translate="no">
+            {value}
+          </span>
+          <span key={`unit-${value}`} className="sr-only">
+            {" "}
+            {value === 1 ? unit.one : unit.many}
+          </span>
         </output>
         <button type="button" className={btn} onClick={() => onChange(value + 1)} disabled={value >= max} aria-label={`More ${unit.many}`}>
           <span aria-hidden="true">+</span>

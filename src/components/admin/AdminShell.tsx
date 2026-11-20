@@ -93,7 +93,7 @@ export function AdminShell({ email, children }: { email: string; children: React
           aria-controls="admin-mobile-nav"
           className="h-10 px-2 text-sm font-medium"
         >
-          {open ? "Close" : "Menu"}
+          <span key={String(open)}>{open ? "Close" : "Menu"}</span>
         </button>
       </header>
       <div id="admin-mobile-nav" hidden={!open} className="fixed inset-x-0 top-14 z-30 border-t border-ivory/10 bg-navy px-4 pb-6 pt-4 text-ivory shadow-lg lg:hidden">

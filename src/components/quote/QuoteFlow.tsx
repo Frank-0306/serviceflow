@@ -294,7 +294,7 @@ export function QuoteFlow({ initialInput }: { initialInput: QuoteInput }) {
                 Back to the estimate
               </button>
               <Button type="submit" loading={submitting}>
-                {submitting ? "Sending request…" : "Send request"}
+                <span key={String(submitting)}>{submitting ? "Sending request…" : "Send request"}</span>
               </Button>
             </div>
           </form>
